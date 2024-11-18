@@ -4,10 +4,12 @@ export function createGallery(images) {
     .map(
       image =>
         `<li class="gallery-item">
+        <div class="img-div">
       <a class="gallery-link" href="${image.largeImageURL}">
         <img src="${image.webformatURL}"
         alt="${image.tags}"/>
         </a>
+        </div>
         <div class="descr-list">
         <div class="descr-item">
         <b class="info">Likes</b>
@@ -29,7 +31,7 @@ export function createGallery(images) {
         </li>`
     )
     .join('');
-  gallery.innerHTML = markup;
+  gallery.insertAdjacentHTML('beforeend', markup);
 }
 
 export function clearGallery() {
